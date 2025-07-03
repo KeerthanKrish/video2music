@@ -1,0 +1,10 @@
+# FastAPI and web framework
+fastapi
+uvicorn
+python-multipart
+
+# Environment management
+python-dotenv
+
+# Development and testing
+pytest 
