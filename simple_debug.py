@@ -4,11 +4,13 @@
 import asyncio
 import os
 from supabase import create_client, Client
+from supabase.client import ClientOptions
+from app.config import settings
 
-# Load environment variables directly
-supabase_url = os.getenv("SUPABASE_URL", "https://aolcnzeoxiofkwbfuinz.supabase.co")
-supabase_anon_key = os.getenv("SUPABASE_ANON_KEY")
-supabase_service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+# Use environment variables for Supabase credentials
+supabase_url = os.getenv("SUPABASE_URL", "https://your-project-id.supabase.co")
+supabase_anon_key = os.getenv("SUPABASE_ANON_KEY", "")
+supabase_service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 
 async def test_authentication():
     """Test authentication flow."""

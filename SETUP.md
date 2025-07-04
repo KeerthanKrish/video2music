@@ -17,7 +17,7 @@ Complete setup instructions for the production video2music application with real
 ### 1. Clone and Setup Environment
 
 ```bash
-git clone <your-repo>
+git clone https://github.com/KeerthanKrish/video2music.git
 cd video2music
 
 # Create Python virtual environment
@@ -95,16 +95,19 @@ Fill in your `.env` file:
 ```env
 # Supabase Configuration
 SUPABASE_URL=https://your-project-id.supabase.co
-SUPABASE_ANON_KEY=eyJ...your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=eyJ...your-service-role-key
+SUPABASE_ANON_KEY=your-actual-anon-key-here
+SUPABASE_SERVICE_ROLE_KEY=your-actual-service-role-key-here
 
 # JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-256-bits-long
+JWT_SECRET=your-random-jwt-secret-here
 JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 # AI Service API Keys
-GEMINI_API_KEY=AI...your-gemini-key
-OPENAI_API_KEY=sk-...your-openai-key
+GEMINI_API_KEY=your-actual-gemini-api-key-here
+OPENAI_API_KEY=your-actual-openai-api-key-here
+SPOTIFY_CLIENT_ID=your-actual-spotify-client-id-here
+SPOTIFY_CLIENT_SECRET=your-actual-spotify-client-secret-here
 
 # URLs (use defaults for development)
 FRONTEND_URL=http://localhost:5173
@@ -124,7 +127,7 @@ Fill in your `frontend/.env` file:
 ```env
 # Supabase Configuration
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJ...your-anon-key
+VITE_SUPABASE_ANON_KEY=your-actual-anon-key-here
 
 # Backend API URL
 VITE_API_BASE_URL=http://localhost:8000

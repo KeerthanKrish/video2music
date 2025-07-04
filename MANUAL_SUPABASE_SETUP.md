@@ -6,7 +6,7 @@ Since you have all your API keys configured, follow these steps to enable real A
 
 ### Step 1: Access Your Supabase Project
 1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
-2. Select your project: `aolcnzeoxiofkwbfuinz`
+2. Select your project: `YOUR_PROJECT_ID`
 
 ### Step 2: Navigate to Environment Variables
 1. Click on **Project Settings** (gear icon in sidebar)

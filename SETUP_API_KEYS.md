@@ -59,18 +59,9 @@ SPOTIFY_CLIENT_SECRET=your_spotify_client_secret_here  # Optional
 ```
 
 #### Option 2: Update backend.env directly
-Edit `backend.env` and replace:
-```env
-# Replace these placeholder values:
-GEMINI_API_KEY=your_gemini_api_key_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
+Edit `backend.env` and replace the placeholder values with your actual API keys.
 
-With your actual API keys:
-```env
-GEMINI_API_KEY=AIzaSy_REPLACE_WITH_YOUR_ACTUAL_GEMINI_KEY
-OPENAI_API_KEY=sk-proj-REPLACE_WITH_YOUR_ACTUAL_OPENAI_KEY
-```
+**Note**: Gemini keys start with "AIzaSy" and OpenAI keys start with "sk-proj-"
 
 ### For Supabase Edge Functions
 

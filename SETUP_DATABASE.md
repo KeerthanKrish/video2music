@@ -1,38 +1,47 @@
-# Database Setup Instructions
+# Database Setup Guide
 
-## Step 1: Create Database Tables
+## Setup Instructions
 
-1. Go to your Supabase Dashboard: https://app.supabase.com/project/aolcnzeoxiofkwbfuinz/sql/new
+1. Go to your Supabase Dashboard: https://app.supabase.com/project/YOUR_PROJECT_ID/sql/new
+2. Copy the contents of `create_tables.sql`
+3. Paste it into the SQL editor
+4. Click "Run" to create the tables
 
-2. Copy the entire contents of `create_tables.sql` file
+## Tables Created
 
-3. Paste it into the SQL editor and click **"Run"**
+- `users` - User profiles and authentication data
+- `requests` - Video processing requests
+- `request_results` - Analysis results for each request
 
-## Step 2: Test the Application
+## Verification
 
-1. Start the frontend: `cd frontend && npm run dev`
+After running the SQL, verify the tables were created:
 
-2. Start the backend: `cd app && python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000`
+```sql
+-- Check if tables exist
+SELECT table_name 
+FROM information_schema.tables 
+WHERE table_schema = 'public';
+```
 
-3. Open http://localhost:5173
+## Test Data
 
-4. Click "Create Account" to sign up with a new user
+You can optionally insert some test data:
 
-5. Check your email for verification (if required)
+```sql
+-- Insert test user (optional)
+INSERT INTO users (id, email, created_at, updated_at) 
+VALUES (gen_random_uuid(), 'test@example.com', NOW(), NOW());
+```
 
-6. Sign in and test uploading a video
+## Next Steps
 
-## What This Fixes
-
-- ✅ Creates `users` and `processing_requests` tables
-- ✅ Sets up proper Row Level Security (RLS) policies  
-- ✅ Creates trigger to auto-create user profiles
-- ✅ Fixes "Failed to load processing requests" error
-- ✅ Enables proper user signup/signin flow
+1. Update your `backend.env` file with your Supabase credentials
+2. Test the connection by running the backend server
+3. Try uploading a video to test the complete flow
 
 ## Troubleshooting
 
-If you still get "table does not exist" errors:
-1. Check the SQL script ran without errors
-2. Verify tables exist in your Supabase Dashboard under "Database" > "Tables"
-3. Restart the backend server after creating tables 
+- **Permission Errors**: Make sure you're using the service role key
+- **Connection Issues**: Verify your Supabase URL and keys in backend.env
+- **Table Creation Failed**: Check the SQL syntax and run each statement individually 
