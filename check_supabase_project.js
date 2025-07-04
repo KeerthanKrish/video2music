@@ -1,10 +1,20 @@
 // Comprehensive Supabase Project Health Check
 // Run this in browser console to check project status
 
-console.log('🏥 Starting Supabase Project Health Check...');
+const { createClient } = require('@supabase/supabase-js');
 
-const SUPABASE_URL = 'https://aolcnzeoxiofkwbfuinz.supabase.co';
-const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvbGNuemVveGlvZmt3YmZ1aW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MzY5MTIsImV4cCI6MjA2NTExMjkxMn0.r3RRCoDKkGzjAhsWLK2YAHL1TJjatUT4PFsAS4DFzro';
+// Load from environment variables
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://your-project.supabase.co';
+const ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
+
+if (!ANON_KEY) {
+  console.error('❌ SUPABASE_ANON_KEY environment variable is not set');
+  process.exit(1);
+}
+
+const supabase = createClient(SUPABASE_URL, ANON_KEY);
+
+console.log('🏥 Starting Supabase Project Health Check...');
 
 async function checkProjectHealth() {
   const results = {};

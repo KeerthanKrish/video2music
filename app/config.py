@@ -14,17 +14,17 @@ class Settings(BaseSettings):
     app_name: str = "video2music"
     debug: bool = False
     
-    # Supabase Configuration
-    supabase_url: str = Field(default="https://aolcnzeoxiofkwbfuinz.supabase.co")
-    supabase_anon_key: str = Field(default="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvbGNuemVveGlvZmt3YmZ1aW56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MzY5MTIsImV4cCI6MjA2NTExMjkxMn0.r3RRCoDKkGzjAhsWLK2YAHL1TJjatUT4PFsAS4DFzro")
-    supabase_service_role_key: str = Field(default="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvbGNuemVveGlvZmt3YmZ1aW56Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0OTUzNjkxMiwiZXhwIjoyMDY1MTEyOTEyfQ.QKSQZD6XlaLpgIQjEyfahdoJUE0UeIakHutm38RvRmI")
+    # Supabase Configuration - Load from environment variables
+    supabase_url: str = Field(default="https://your-project.supabase.co", env="SUPABASE_URL")
+    supabase_anon_key: str = Field(default="", env="SUPABASE_ANON_KEY")
+    supabase_service_role_key: str = Field(default="", env="SUPABASE_SERVICE_ROLE_KEY")
     
     # Processing Configuration - Enable real processing when API keys are provided
     use_edge_functions: bool = Field(default=True)
     use_real_ai: bool = Field(default=False)  # Will be set to True when API keys are valid
     
-    # JWT Configuration
-    jwt_secret: str = "development-secret-key-change-in-production"
+    # JWT Configuration - Load from environment variables
+    jwt_secret: str = Field(default="change-this-in-production", env="JWT_SECRET")
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
     
