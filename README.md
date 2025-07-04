@@ -111,4 +111,4 @@ black app/
 Type checking:
 ```bash
 mypy app/
-``` 
+```
